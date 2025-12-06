@@ -9,6 +9,88 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the redesigned contact page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent));
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.4);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .contact-card p {
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .map-container {
+            margin-top: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            height: 400px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,6 +99,9 @@
         <div class="logo">Dr. T.C. Manjunath</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
+            <li><a href="Dr Man Biography - WA - RRCE.pdf" target="_blank">Biography</a></li>
+            <li><a href="Dr Man Profile-WA-RRCE.pdf" target="_blank">Profile</a></li>
+            <li><a href="Dr Man Short CV-RRCE.pdf" target="_blank">Resume</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="achievements.html">Achievements</a></li>
             <li><a href="contact.html" class="active" style="color: var(--accent);">Contact</a></li>
@@ -28,28 +113,60 @@
         </div>
     </nav>
 
-    <header class="hero" style="height: 50vh;">
+    <header class="hero" style="height: 40vh; min-height: 300px;">
         <div class="hero-content">
             <h1>Get in Touch</h1>
             <p>Connect for research collaborations, academic inquiries, or speaking engagements.</p>
         </div>
-        </section>
+    </header>
 
-        <section id="social">
-            <h2 class="section-title">Academic Profiles</h2>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <a href="https://www.researchgate.net/profile/T-C-Manjunath" target="_blank"
-                    class="btn">ResearchGate</a>
-                <a href="https://scholar.google.com/" target="_blank" class="btn">Google Scholar</a>
-                <a href="https://www.linkedin.com/" target="_blank" class="btn">LinkedIn</a>
+    <section id="contact-info">
+        <div class="contact-container">
+            <!-- Address Card -->
+            <div class="contact-card">
+                <div class="icon-box">📍</div>
+                <h3>Professional Address</h3>
+                <p><strong>Dr. T.C. Manjunath</strong></p>
+                <p>Professor & Dean (Research) R & D</p>
+                <p>Dept of Computer Science & Engineering</p>
+                <p>RajaRajeswari College of Engineering</p>
+                <p>Bengaluru, Karnataka, India</p>
             </div>
-        </section>
 
-        <footer>
-            <p>&copy; 2025 Dr. T.C. Manjunath. All Rights Reserved.</p>
-        </footer>
+            <!-- Email Card -->
+            <div class="contact-card">
+                <div class="icon-box">✉️</div>
+                <h3>Email Address</h3>
+                <p>For inquiries and collaborations:</p>
+                <p><a href="mailto:tcmanjunath@gmail.com">tcmanjunath@gmail.com</a></p>
+            </div>
 
-        <script src="script.js"></script>
+            <!-- Social Card -->
+            <div class="contact-card">
+                <div class="icon-box">🌐</div>
+                <h3>Connect Online</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+                    <a href="https://www.researchgate.net/profile/T-C-Manjunath" target="_blank">ResearchGate Profile
+                        &rarr;</a>
+                    <a href="https://scholar.google.com/" target="_blank">Google Scholar Profile &rarr;</a>
+                    <a href="https://www.linkedin.com/" target="_blank">LinkedIn Profile &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Google Map Embed -->
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.750939704462!2d77.4812363148215!3d12.92372299088716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3ee159ba3729%3A0x75a3463d510cf26e!2sRajaRajeswari%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1633072800000!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dr. T.C. Manjunath. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
